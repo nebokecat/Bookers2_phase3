@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
     #sin up時の登録情報追加
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profle_image, :email])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profle_image, :email,:postal_code,:prefecture_code,:city,:street])
       devise_parameter_sanitizer.permit(:sign_in, keys: [:name]) # ログイン時にnameを使用
     end
     def correct_user?(user)

@@ -13,5 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(function() {
+  return $('#user_postal_code').jpostal({
+    postcode: ['#user_postal_code'],
+    address: {
+      '#user_prefecture_code': '%3',
+      '#user_address_city': '%4%5'
+    },
+  });
+});
