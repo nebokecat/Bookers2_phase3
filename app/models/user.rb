@@ -17,6 +17,10 @@ class User < ApplicationRecord
   # フォローしている人
   has_many :relationships, foreign_key: "follower_id"
   has_many :followings, through: :relationships,source: :followee
+
+  # DM機能
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   
   def following?(another_user)
     self.followings.include?(another_user)
@@ -35,4 +39,8 @@ class User < ApplicationRecord
     end
   end
 
+  def exists_room?(current_user)
+    room = current_user.user_rooms.pluck(:room_id)
+    self.user_rooms.find_by(room_id: room)
+  end
 end 

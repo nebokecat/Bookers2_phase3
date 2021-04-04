@@ -1,0 +1,10 @@
+<h3><%=@pair_user.name%>さんとのチャット</h3>
+<%=form_with model:@chat,url:chat_path(@room)do |f|%>
+  <%=f.text_area :content%>
+  <%=f.submit%>
+<%end%>
+<table class="table">
+  <tbody id="chat">
+    <%= render "chats/content",chats: @chats,current_user: @current_user%>
+  </tbody>
+</table>

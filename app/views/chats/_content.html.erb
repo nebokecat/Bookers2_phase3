@@ -1,0 +1,11 @@
+<% chats.each do |chat| %>
+  <tr>
+    <%if chat.user == current_user %>
+      <td class="text-center"></td>
+      <td class="text-center"><%= chat.content %></td>
+    <% else %>
+      <td class="text-center"><%= chat.content %></td>
+      <td class="text-center"></td>
+    <% end %>
+  </tr>
+<% end %>

@@ -36,7 +36,13 @@
         </tr>
       <% end %>
 </table>
-
+<% unless user==current_user %>
+  <% if room=user.exists_room?(current_user).room %>
+    <%=link_to "チャットを始める",user_room_path(user,room)%>
+  <%else%>
+    <%= link_to "チャットを始める",user_rooms_path(user),method: :post %>
+  <%end%>
+<% end %>
 <div class='row'>
   <%= link_to '',edit_user_path(user),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
 </div>
