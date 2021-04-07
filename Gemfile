@@ -68,3 +68,4 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 gem "dotenv-rails"
+gem 'whenever', require: false
